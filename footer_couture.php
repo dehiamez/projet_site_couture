@@ -1,0 +1,1 @@
+<footer><p>COUTURE FOR YOU ©</p></footer>
