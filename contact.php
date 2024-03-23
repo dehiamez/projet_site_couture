@@ -8,6 +8,7 @@
 	<link rel="icon" href="logo_couture.jpg" type="image/x-icon" />
     <title>Contact - COUTUREFORYOU</title>
 </head>
+	<?php include ("nav_couture.php") ?>
     <body>
         <div class="container">
         <div class="row">
