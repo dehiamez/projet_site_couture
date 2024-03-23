@@ -28,5 +28,6 @@
             </div>
         </div>
     </div>
+	    <?php include ("footer_couture.php")?>
 </body>
 
