@@ -1,4 +1,15 @@
-    <div class="container">
+    <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.css" />
+	<link rel="stylesheet" href="coutureforyou.css" />
+	<link rel="icon" href="logo_couture.jpg" type="image/x-icon" />
+    <title>Contact - COUTUREFORYOU</title>
+</head>
+    <body>
+        <div class="container">
         <div class="row">
             <div class="col-lg-12" id="partiedecontact">
                 <h3>Contact</h3>
@@ -16,4 +27,5 @@
             </div>
         </div>
     </div>
+</body>
 
