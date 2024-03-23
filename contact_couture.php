@@ -10,7 +10,6 @@
         <title>Contact - COUTUREFORYOU</title>
     </head>
     <?php include ("nav_couture.php") ?>
-
     <body>
         <div class="container">
             <div class="row">
@@ -20,7 +19,7 @@
                     <input type="text" id="name">
                     <br>
                     <label for="numero">Numéro de téléphone :</label>
-                    <input type="number" name="numero" id="numero">
+                    <input type="tel" name="numero" id="numero">
                     <br>
                     <label for="email">Email :</label>
                     <input type="email" name="email" id="email">
