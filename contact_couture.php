@@ -19,15 +19,16 @@
                     <form action="" method="POST">
                     <label for="name">Nom et Prénom :</label>
                     <input type="text" id="name">
-                    <br>
+                    <br><br>
                     <label for="numero">Numéro de téléphone :</label>
                     <input type="tel" name="numero" id="numero">
-                    <br>
+                    <br><br>
                     <label for="email">Email :</label>
                     <input type="email" name="email" id="email">
-                    <br>
+                    <br><br>
                     <p>Posez votre question :</p>
                     <textarea name="question" id="question" cols="40" rows="10"></textarea>
+                    <input type="submti" value="Soumettre ma demande" class="btn btn-outline-primary">
                     </form>
                 </div>
             </div>

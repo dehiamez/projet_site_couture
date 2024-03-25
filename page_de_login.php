@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.css" />
+    <link rel="stylesheet" href="coutureforyou.css" />
+    <link rel="icon" href="logo_couture.jpg" type="image/x-icon" />
     <title>Login - COUTUREFORYOU</title>
 </head>
 
@@ -22,11 +25,11 @@
                     <br />
                     <input type="password" name="mot de passe" id="mdp" />
                     <br />
-                    <input type="submit" value="Se connecter" name="connect" class="connect_button" />
+                    <input type="submit" value="Se connecter" name="connect" class="btn btn-outline-primary" />
                 </form>
             </div>
             <div class="col-sm-6" id="rightpart">
-                <form>
+                <form method="POST" action="#">
                     <h2>Créer un nouveau compte</h2>
                     <label for="nom">Nom :</label>
                     <br />
@@ -47,7 +50,7 @@
                     <label for="password">Mot de passe:</label>
                     <br />
                     <input type="password" id="password" name="psswrd" /><br />
-                    <input type="submit" value="S'inscrire" class="connect_button" />
+                    <input type="submit" value="S'inscrire" class="btn btn-outline-primary" />
                 </form>
             </div>
         </div>

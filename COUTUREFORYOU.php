@@ -55,6 +55,7 @@
                         <h5>Les témoignages de clients</h5>
                         <label for="commentaire">Ajoutez votre avis : </label><br />
                         <textarea name="commentaire" id="commentaire"></textarea>
+                        <input type="submit" value="Partager mon avis" class="btn btn-outline-primary">
                     </div>
                 </div>
                 <div class="col-sm-3">

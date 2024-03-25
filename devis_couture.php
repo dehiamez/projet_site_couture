@@ -66,7 +66,6 @@
                 <label for="couleur"></label>
                 <input type="color" name="couleur" id="couleur" />
                 <p>Services : </p>
-
                 <input type="radio" id="ourlet" name="service" value="Ourlet" />
                 <label for="ourlet">Ourlet (20.00 €)
                 </label><br />
@@ -74,8 +73,8 @@
                 <label for="retouches">Retouches (30.00 €)</label><br />
                 <input type="radio" id="OetR" name="service" value="Retouches et ourlet" />
                 <label for="OetR">Retouches et ourlet (50.00 €)</label>
-                <br>
-                <input type="submit" value="Envoyer mon devis" class="connect_button">
+                <br><br>
+                <input type="submit" value="Envoyer mon devis" class="btn btn-outline-primary">
             </form>
         </div>
     </div>
