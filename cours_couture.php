@@ -110,8 +110,8 @@
             </div>
         </div>
     </div>
-    <?php include("footer_couture.php")?>
 
-</body>
+</body>    <?php include("footer_couture.php")?>
+
 
 </html>

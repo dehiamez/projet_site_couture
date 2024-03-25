@@ -63,7 +63,8 @@
             </div>
         </div>
     </main>
-    <?php include("footer_couture.php") ?>
 </body>
+<?php include("footer_couture.php") ?>
+
 
 </html>

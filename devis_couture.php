@@ -16,9 +16,9 @@
         <div class="row">
             <form action="#" method="post">
                 <h3>Devis</h3>
-                <p>Description</p>
+                <p>Description : </p>
                 <textarea name="description" id="description"></textarea>
-                <p>Type de vêtements</p>
+                <p>Type de vêtements : </p>
                 <label for="vetements"></label>
                 <select name="vetements" id="vetements">
                     <option value="selection">
@@ -68,17 +68,18 @@
                 <p>Services : </p>
 
                 <input type="radio" id="ourlet" name="service" value="Ourlet" />
-                <label for="ourlet">Ourlet</label><br />
+                <label for="ourlet">Ourlet (20.00 €)
+                </label><br />
                 <input type="radio" id="retouches" name="service" value="Retouches" />
-                <label for="retouches">Retouches</label><br />
+                <label for="retouches">Retouches (30.00 €)</label><br />
                 <input type="radio" id="OetR" name="service" value="Retouches et ourlet" />
-                <label for="OetR">Retouches et ourlet</label>
+                <label for="OetR">Retouches et ourlet (50.00 €)</label>
                 <br>
                 <input type="submit" value="Envoyer mon devis" class="connect_button">
             </form>
         </div>
     </div>
-    <?php include("footer_couture.php")?>
 </body>
+<?php include("footer_couture.php")?>
 
 </html>
