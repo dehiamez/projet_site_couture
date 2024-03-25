@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
     <html lang="fr">
 
     <head>
@@ -10,6 +10,7 @@
         <title>Contact - COUTUREFORYOU</title>
     </head>
     <?php include ("nav_couture.php") ?>
+
     <body>
         <div class="container">
             <div class="row">

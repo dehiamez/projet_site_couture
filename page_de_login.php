@@ -10,19 +10,19 @@
 <body>
     <?php include ("nav_couture.php") ?>
     <div class="container">
-        <div class="row">
+        <div class="row elements">
             <div class="col-sm-6" id="leftpart">
                 <form method="post" action="#">
                     <h2>Se connecter</h2>
                     <label for="email">Adresse Email:</label>
                     <br />
-                    <input type="email" name="email" id="email" />
+                    <input type="email" name="email" id="email" value="adresse@mail.com" />
                     <br />
                     <label for="mdp">Mot de passe :</label>
                     <br />
                     <input type="password" name="mot de passe" id="mdp" />
                     <br />
-                    <input type="button" value="Se connecter" name="connect" class="connect_button" />
+                    <input type="submit" value="Se connecter" name="connect" class="connect_button" />
                 </form>
             </div>
             <div class="col-sm-6" id="rightpart">
@@ -42,12 +42,12 @@
                     <br />
                     <label for="email">Adresse Email :</label>
                     <br />
-                    <input type="email" />
+                    <input type="email" value="adresse@mail.com" />
                     <br />
                     <label for="password">Mot de passe:</label>
                     <br />
                     <input type="password" id="password" name="psswrd" /><br />
-                    <input type="button" value="S'inscrire" class="connect_button" />
+                    <input type="submit" value="S'inscrire" class="connect_button" />
                 </form>
             </div>
         </div>

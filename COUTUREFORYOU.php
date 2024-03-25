@@ -14,7 +14,7 @@
     <?php include("nav_couture.php") ?>
     <main>
         <div class="container">
-            <div class="row">
+            <div class="row elements">
                 <div class="col-sm-9" id="premiergaucheinfo">
                     <h3 id="accueil">Accueil</h3>
                     <h5>Les services proposés</h5>

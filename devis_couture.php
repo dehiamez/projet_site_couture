@@ -65,14 +65,16 @@
                 <p>Couleur :</p>
                 <label for="couleur"></label>
                 <input type="color" name="couleur" id="couleur" />
-                <p>Services</p>
+                <p>Services : </p>
 
-                <input type="radio" name="ourlet" id="ourlet" />
+                <input type="radio" id="ourlet" name="service" value="Ourlet" />
                 <label for="ourlet">Ourlet</label><br />
-                <input type="radio" name="retouches" id="retouches" />
+                <input type="radio" id="retouches" name="service" value="Retouches" />
                 <label for="retouches">Retouches</label><br />
-                <input type="radio" name="OetR" id="OetR" />
-                <label for="OetR">Retouches plus ourlet</label>
+                <input type="radio" id="OetR" name="service" value="Retouches et ourlet" />
+                <label for="OetR">Retouches et ourlet</label>
+                <br>
+                <input type="submit" value="Envoyer mon devis" class="connect_button">
             </form>
         </div>
     </div>
