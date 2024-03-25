@@ -15,22 +15,25 @@
     <main>
         <div class="container">
             <div class="row elements">
-                <div class="col-sm-9" id="premiergaucheinfo">
+                <div class="d-flex justify-content-center align-items-center">
                     <h3 id="accueil">Accueil</h3>
-                    <h5>Les services proposés</h5>
-                    <h5>
+                    <img src="logo_couture.jpg" alt="logo_couture" id="partiedroite" />
+                </div>
+                <div id="services">
+                    <h4>Les services proposés</h4>
+                    <h6>
                         Conception sur mesure , retouches et
                         ajustements
-                    </h5>
+                    </h6>
                     <p>
                         Création de vêtements sur mesure selon
                         les spécifications et les préférences
                         du client et modification de vêtements
                         existants pour un ajustement parfait.
                     </p>
-                    <h5>
+                    <h6>
                         Cours de couture et conseils en style
-                    </h5>
+                    </h6>
                     <p>
                         Organisation de cours de couture pour
                         enseigner aux clients les techniques
@@ -42,7 +45,7 @@
                         peau, de leurs préférences
                         personnelles.
                     </p>
-                    <h5>Services de consultation en mariage</h5>
+                    <h6>Services de consultation en mariage</h6>
                     <p>
                         Fourniture de services de consultation
                         et de conception de robes de mariée
@@ -50,16 +53,12 @@
                         le choix des tenues pour la fête de
                         mariage.
                     </p>
-                    <br />
-                    <div>
-                        <h5>Les témoignages de clients</h5>
-                        <label for="commentaire">Ajoutez votre avis : </label><br />
-                        <textarea name="commentaire" id="commentaire"></textarea>
-                        <input type="submit" value="Partager mon avis" class="btn btn-outline-primary">
-                    </div>
                 </div>
-                <div class="col-sm-3">
-                    <img src="logo_couture.jpg" alt="logo_couture" id="partiedroite" />
+                <div id="avis">
+                    <h5>Les témoignages de clients</h5>
+                    <label for="commentaire">Ajoutez votre avis : </label><br />
+                    <textarea name="commentaire" id="commentaire" class="form-control"></textarea>
+                    <br><input type="submit" value="Partager mon avis" class="btn btn-outline-primary">
                 </div>
             </div>
         </div>

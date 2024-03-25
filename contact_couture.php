@@ -1,37 +1,37 @@
 <!DOCTYPE html>
-    <html lang="fr">
+<html lang="fr">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="bootstrap.css" />
-        <link rel="stylesheet" href="coutureforyou.css" />
-        <link rel="icon" href="logo_couture.jpg" type="image/x-icon" />
-        <title>Contact - COUTUREFORYOU</title>
-    </head>
-    <?php include ("nav_couture.php") ?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.css" />
+    <link rel="stylesheet" href="coutureforyou.css" />
+    <link rel="icon" href="logo_couture.jpg" type="image/x-icon" />
+    <title>Contact - COUTUREFORYOU</title>
+</head>
+<?php include ("nav_couture.php") ?>
 
-    <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12" id="partiedecontact">
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12" id="partiedecontact">
+                <form action="#" method="POST" class="form-control">
                     <h3>Contact</h3>
-                    <form action="" method="POST">
                     <label for="name">Nom et Prénom :</label>
-                    <input type="text" id="name">
-                    <br><br>
+                    <input type="text" id="name" class="form-control">
+                    <br>
                     <label for="numero">Numéro de téléphone :</label>
-                    <input type="tel" name="numero" id="numero">
-                    <br><br>
+                    <input type="tel" name="numero" id="numero" class="form-control">
+                    <br>
                     <label for="email">Email :</label>
-                    <input type="email" name="email" id="email">
-                    <br><br>
+                    <input type="email" name="email" id="email" class="form-control">
+                    <br>
                     <p>Posez votre question :</p>
-                    <textarea name="question" id="question" cols="40" rows="10"></textarea>
+                    <textarea name="question" id="question" cols="40" rows="10" class="form-control"></textarea><br>
                     <input type="submti" value="Soumettre ma demande" class="btn btn-outline-primary">
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
-    </body>
-    <?php include ("footer_couture.php")?>
+    </div>
+</body>
+<?php include ("footer_couture.php")?>

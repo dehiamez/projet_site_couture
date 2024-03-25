@@ -13,8 +13,8 @@
 <body>
     <?php include ("nav_couture.php")?>
     <div class="container">
-        <div class="row">
-            <form action="#" method="post">
+        <div class="row element">
+            <form action="#" method="post" class="form-control">
                 <h3>Devis</h3>
                 <p>Description : </p>
                 <textarea name="description" id="description"></textarea>
@@ -66,6 +66,7 @@
                 <label for="couleur"></label>
                 <input type="color" name="couleur" id="couleur" />
                 <p>Services : </p>
+
                 <input type="radio" id="ourlet" name="service" value="Ourlet" />
                 <label for="ourlet">Ourlet (20.00 €)
                 </label><br />
@@ -74,7 +75,7 @@
                 <input type="radio" id="OetR" name="service" value="Retouches et ourlet" />
                 <label for="OetR">Retouches et ourlet (50.00 €)</label>
                 <br><br>
-                <input type="submit" value="Envoyer mon devis" class="btn btn-outline-primary">
+                <input type="submit" value="Envoyer mon devis" class="btn btn-outline-primary"><br>
             </form>
         </div>
     </div>
