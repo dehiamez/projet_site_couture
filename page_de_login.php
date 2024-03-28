@@ -57,6 +57,43 @@
         </div>
     </div>
 
+    <!-- code php permettant de créer son propre compte utilisateur et y accéder avec un mot de passe etc... -->
+
+    <?php
+
+$hote = "localhost";
+$login = "mezianedehia";
+$pass = "899136";
+$nomBD = "nomMail";
+
+try{
+    $connexion = new PDO("mysql:host=$hote;dbname=$nomBD" , $login, $pass);
+    $connexion -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Connexion réussie <br>";
+
+    $sql_code = "CREATE TABLE clients(
+        Nom VARCHAR(50),
+        Email VARCHAR(70)
+    )";
+    $connexion->exec($sql_code);
+
+    if ($_SERVER["REQUEST_METHOD"]=="POST"){
+        $nom = $_POST["nom"];
+        $email = $_POST["email"];
+        
+        $sql_insert_data = "INSERT INTO Donnees (Nom, Email) VALUES ('$nom', '$email')";
+        $connexion->exec($sql_insert_data);
+
+        echo 'Données insérées avec succès';
+
+    }
+}
+catch (PDOException $e){
+    echo "Erreur :". $e->getMessage();
+}
+
+$connexion = null;
+?>
 </body>
 <?php include("footer_couture.php")?>
 
