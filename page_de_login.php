@@ -19,11 +19,12 @@
                     <h2 class="log">Se connecter</h2>
                     <label for="email">Adresse Email:</label>
                     <br />
-                    <input type="email" name="email" id="email" value="adresse@mail.com" class="form-control" />
+                    <input type="email" name="email" id="email" value="adresse@mail.com" class="form-control"
+                        required />
                     <br />
                     <label for="mdp">Mot de passe :</label>
                     <br />
-                    <input type="password" name="mot de passe" id="mdp" class="form-control" />
+                    <input type="password" name="mot de passe" id="mdp" class="form-control" required />
                     <br>
                     <input type="submit" value="Se connecter" name="connect" class="btn btn-outline-primary" />
                 </form>
@@ -33,23 +34,23 @@
                     <h2 class="log">Créer un nouveau compte</h2>
                     <label for="nom">Nom :</label>
                     <br />
-                    <input type="text" name="nom" id="nom" class="form-control" />
+                    <input type="text" name="nom" id="nom" class="form-control" required />
                     <br />
                     <label for="prenom">Prénom :</label>
                     <br />
-                    <input type="text" name="prenom" id="prenom" class="form-control" />
+                    <input type="text" name="prenom" id="prenom" class="form-control" required />
                     <br />
                     <label for="birthdate">Date de Naissance :</label>
                     <br />
-                    <input type="date" name="birthdate" id="birthdate" class="form-control" />
+                    <input type="date" name="birthdate" id="birthdate" class="form-control" required />
                     <br />
                     <label for="email">Adresse Email :</label>
                     <br />
-                    <input type="email" value="adresse@mail.com" class="form-control" />
+                    <input type="email" value="adresse@mail.com" class="form-control" required />
                     <br />
                     <label for="password">Mot de passe:</label>
                     <br />
-                    <input type="password" id="password" name="psswrd" class="form-control" /><br>
+                    <input type="password" id="password" name="psswrd" class="form-control" required /><br>
                     <input type="submit" value="S'inscrire" class="btn btn-outline-primary" />
                 </form>
             </div>
