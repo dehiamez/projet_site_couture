@@ -21,7 +21,7 @@
                     <input type="text" id="name" class="form-control" required>
                     <br>
                     <label for="numero">Numéro de téléphone :</label>
-                    <input type="tel" name="numero" id="numero" class="form-control" required>
+                    <input type="tel" name="numero" id="numero" class="form-control" pattern="[0-9]{10}" required>
                     <br>
                     <label for="email">Email :</label>
                     <input type="email" name="email" id="email" class="form-control" required>
