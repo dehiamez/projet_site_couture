@@ -15,7 +15,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12" id="partiedecontact">
-                <form action="mailto:coutureForFun@mail.com" method="POST" class="form-control">
+                <form action="mailto:mezianedehia@gmail.com" method="POST" class="form-control">
                     <h3>Contact</h3>
                     <label for="name">Nom et Prénom :</label>
                     <input type="text" id="name" class="form-control" pattern="[A-Za-z\ ]+" required>
