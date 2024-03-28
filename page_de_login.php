@@ -34,11 +34,12 @@
                     <h2 class="log">Créer un nouveau compte</h2>
                     <label for="nom">Nom :</label>
                     <br />
-                    <input type="text" name="nom" id="nom" class="form-control" required />
+                    <input type="text" name="nom" id="nom" class="form-control" pattern="[A-Za-z]+" required />
                     <br />
                     <label for="prenom">Prénom :</label>
                     <br />
-                    <input type="text" name="prenom" id="prenom" class="form-control" required />
+                    <input type="text" name="prenom" id="prenom" class="form-control" pattern="[A-Za-z\ \-]+"
+                        required />
                     <br />
                     <label for="birthdate">Date de Naissance :</label>
                     <br />
@@ -46,11 +47,12 @@
                     <br />
                     <label for="email">Adresse Email :</label>
                     <br />
-                    <input type="email" value="adresse@mail.com" class="form-control" required />
+                    <input type="email" name="email" id="email" value="adresse@mail.com" class="form-control"
+                        required />
                     <br />
                     <label for="password">Mot de passe:</label>
                     <br />
-                    <input type="password" id="password" name="psswrd" class="form-control" required /><br>
+                    <input type="password" id="psswrd" name="psswrd" class="form-control" required /><br>
                     <input type="submit" value="S'inscrire" class="btn btn-outline-primary" />
                 </form>
             </div>
@@ -61,30 +63,38 @@
 
     <?php
 
-$hote = "localhost";
-$login = "mezianedehia";
-$pass = "899136";
-$nomBD = "nomMail";
+// à modifier
+
+// $hote = "localhost";
+// $login = "mezianedehia";
+// $pass = "899136";
+// $nomBD = "couture";
 
 try{
     $connexion = new PDO("mysql:host=$hote;dbname=$nomBD" , $login, $pass);
     $connexion -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connexion réussie <br>";
+    // echo "Connexion réussie <br>"; à verifier
 
-    $sql_code = "CREATE TABLE clients(
+    $sql_code = "CREATE TABLE login(
         Nom VARCHAR(50),
-        Email VARCHAR(70)
+        Prenom VARCHAR(50),
+        Date_N DATE,
+        Email VARCHAR(70),
+        Mdp VARCHAR(100)
     )";
     $connexion->exec($sql_code);
 
     if ($_SERVER["REQUEST_METHOD"]=="POST"){
         $nom = $_POST["nom"];
+        $prenom = $_POST["prenom"];
         $email = $_POST["email"];
-        
-        $sql_insert_data = "INSERT INTO Donnees (Nom, Email) VALUES ('$nom', '$email')";
+        $date_n = $_POST["birthdate"];
+        $mdp = $_POST["psswrd"];
+
+        $sql_insert_data = "INSERT INTO login (Nom,Prenom,Date_N,Email,Mdp) VALUES ('$nom','$prenom','$email','$date_n','$mdp')";
         $connexion->exec($sql_insert_data);
 
-        echo 'Données insérées avec succès';
+        echo "Bienvenue '$prenom'";
 
     }
 }
