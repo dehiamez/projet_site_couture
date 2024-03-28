@@ -18,17 +18,18 @@
                 <form action="#" method="POST" class="form-control">
                     <h3>Contact</h3>
                     <label for="name">Nom et Prénom :</label>
-                    <input type="text" id="name" class="form-control">
+                    <input type="text" id="name" class="form-control" required>
                     <br>
                     <label for="numero">Numéro de téléphone :</label>
-                    <input type="tel" name="numero" id="numero" class="form-control">
+                    <input type="tel" name="numero" id="numero" class="form-control" required>
                     <br>
                     <label for="email">Email :</label>
-                    <input type="email" name="email" id="email" class="form-control">
+                    <input type="email" name="email" id="email" class="form-control" required>
                     <br>
                     <p>Posez votre question :</p>
-                    <textarea name="question" id="question" cols="40" rows="10" class="form-control"></textarea><br>
-                    <input type="submti" value="Soumettre ma demande" class="btn btn-outline-primary">
+                    <textarea name="question" id="question" cols="40" rows="10" class="form-control"
+                        required></textarea><br>
+                    <input type="submit" value="Soumettre ma demande" class="btn btn-outline-primary">
                 </form>
             </div>
         </div>
