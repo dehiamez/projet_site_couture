@@ -15,7 +15,7 @@
     <div class="container">
         <div class="row elements">
             <div class="col-sm-6" id="leftpart">
-                <form method="post" action="#" class="form-control">
+                <form method="post" action="COUTUREFORYOU.php" class="form-control">
                     <h2 class="log">Se connecter</h2>
                     <label for="email">Adresse Email:</label>
                     <br />
