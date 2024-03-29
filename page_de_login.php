@@ -72,7 +72,7 @@
 // à modifier
 $hote = "localhost";
 $login = "root";
-// $pass = "root";
+$pass = "root";
 $nomBD = "couture";
 
 try{
