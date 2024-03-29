@@ -72,14 +72,13 @@
 // à modifier
 $hote = "localhost";
 $login = "root";
-$pass = "root";
 $nomBD = "couture";
 
 try{
     
     // connexion à la base de données
 
-    $connexion = new PDO("mysql:host=$hote;dbname=$nomBD" , $login, $pass);
+    $connexion = new PDO("mysql:host=$hote;dbname=$nomBD" , $login);
     $connexion -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     //verification que la table n'existe pas déjà
