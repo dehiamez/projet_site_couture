@@ -18,7 +18,7 @@
             <!-- formulaire de connexion  -->
 
             <div class="col-sm-6" id="leftpart">
-                <form method="post" action="COUTUREFORYOU.php" class="form-control">
+                <form method="POST" action="COUTUREFORYOU.php" class="form-control">
                     <h2 class="log">Se connecter</h2>
                     <label for="email">Adresse Email:</label>
                     <br />
@@ -29,7 +29,7 @@
                     <br />
                     <input type="password" name="mot de passe" id="mdp" class="form-control" required />
                     <br>
-                    <input type="submit" value="Se connecter" name="connect" class="btn btn-outline-primary" />
+                    <input type="submit" value="Se connecter" name="connection" class="btn btn-outline-primary" />
                 </form>
             </div>
 
@@ -59,7 +59,7 @@
                     <label for="password">Mot de passe:</label>
                     <br />
                     <input type="password" id="psswrd" name="psswrd" class="form-control" required /><br>
-                    <input type="submit" value="S'inscrire" class="btn btn-outline-primary" />
+                    <input type="submit" name="inscription" value="S'inscrire" class="btn btn-outline-primary" />
                 </form>
             </div>
         </div>
@@ -68,55 +68,75 @@
     <!-- code php permettant de créer son propre compte utilisateur et y accéder avec un mot de passe etc... -->
 
     <?php
+        $serveur = "localhost";
+        $login = "root";
+        $nomBD = "Couture";
 
-// à modifier
-$hote = "localhost";
-$login = "root";
-$nomBD = "couture";
+        if (isset($_POST['inscription'])){
 
-try{
-    
-    // connexion à la base de données
+            // verification que la base de données n'existe pas déjà lorsqu'on souhaite s'inscrire
+            try{
+                $connexion = new PDO("mysql:host=$serveur;dbname=$nomBD",$login);
+                $connexion -> setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+                
+                echo "La base de données existe déjà.";
+            }
+            catch(PDOException $e)
+            {
+                try{
+                    $connexion = new PDO("mysql:host=$serveur",$login);
+                    $connexion -> setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-    $connexion = new PDO("mysql:host=$hote;dbname=$nomBD" , $login);
-    $connexion -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    $codesql = "CREATE DATABASE Couture";
+                    $connexion->exec($codesql);
 
-    //verification que la table n'existe pas déjà
-    
-    $check_table_query = $connexion->query("SHOW TABLES LIKE 'login'");
-    if($check_table_query->rowCount()==0){
-        $sql_code = "CREATE TABLE login(
-            Nom VARCHAR(50),
-            Prenom VARCHAR(50),
-            Date_N DATE,
-            Email VARCHAR(70),
-            Mdp VARCHAR(100)
-        )";
-        $connexion->exec($sql_code);
-    }
+                    echo "BD bien créée";
+                }
+                catch (PDOException $ex){
+                echo "Erreur :". $ex ->getMessage();
+                }
+            }
 
-    //Insersion des infos de l'utilisateur dans la base de données
-    
-    if ($_SERVER["REQUEST_METHOD"]=="POST"){
-        $nom = $_POST["nom"];
-        $prenom = $_POST["prenom"];
-        $email = $_POST["email"];
-        $date_n = $_POST["birthdate"];
-        $mdp = password_hash($_POST["psswrd"],PASSWORD_DEFAULT);
+            // connexion à la base de données
+            try{
+                $connexion = new PDO("mysql:host=$serveur;dbname=$nomBD" , $login);
+                $connexion -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            
+            //verification que la table n'existe pas déjà
+        
+                $check_table_query = $connexion->query("SHOW TABLES LIKE 'Utilisateurs'");
+                
+                if($check_table_query->rowCount()==0 ){
+                    $sql_code = "CREATE TABLE Utilisateurs(
+                        Nom VARCHAR(50),
+                        Prenom VARCHAR(50),
+                        Date_N DATE,
+                        Email VARCHAR(70),
+                        Mdp VARCHAR(100)
+                        )";
+                    $connexion->exec($sql_code);
+                }
+                //Insersion des infos de l'utilisateur dans la base de données
+                $nom = $_POST["nom"];
+                $prenom = $_POST["prenom"];
+                $email = $_POST["email"];
+                $date_n = $_POST["birthdate"];
+                $mdp = password_hash($_POST["psswrd"],PASSWORD_DEFAULT);
 
-        $sql_insert_data = "INSERT INTO login (Nom,Prenom,Email,Date_N,Mdp) VALUES ('$nom','$prenom','$email','$date_n','$mdp')";
-        $connexion->exec($sql_insert_data);
+                $sql_insert_data = "INSERT INTO Utilisateurs (Nom,Prenom,Email,Date_N,Mdp) VALUES ('$nom','$prenom','$email','$date_n','$mdp')";
+                $connexion->exec($sql_insert_data);
 
-        echo "Bienvenue '$prenom'";
+                echo "Bienvenue '$prenom'";
 
-    }
-}
-catch (PDOException $e){
-    echo "Erreur :". $e->getMessage();
-}
+                
+            }
+            catch (PDOException $e){
+                echo "Erreur :". $e->getMessage();
+            }
 
-$connexion = null;
-?>
+            $connexion = null;
+        }
+    ?>
 
     <?php include("footer_couture.php")?>
 </body>
