@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="bootstrap.css" />
     <link rel="stylesheet" href="coutureforyou.css" />
     <link rel="icon" href="logo_couture.jpg" type="image/x-icon" />
-    <title>Cours - COUTUREFORYOU</title>
+    <title>Course - COUTUREFORYOU</title>
 </head>
 
 <body>
