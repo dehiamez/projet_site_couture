@@ -82,4 +82,38 @@
 </body>
 <?php include("footer_couture.php")?>
 
+<!-- chat gpt -->
+<!-- <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Capturer les données soumises dans le formulaire
+    $description = $_POST["description"];
+    $vetements = $_POST["vetements"];
+    $tissu = $_POST["tissu"];
+    $taille = $_POST["taille"];
+    $couleur = $_POST["couleur"];
+    $service = $_POST["service"];
+
+    // Construire le contenu de l'e-mail
+    $subject = "Récapitulatif de votre devis";
+    $message = "Voici le récapitulatif de votre devis :\n\n";
+    $message .= "Description : $description\n";
+    $message .= "Type de vêtements : $vetements\n";
+    $message .= "Type de tissu : $tissu\n";
+    $message .= "Taille : $taille\n";
+    $message .= "Couleur : $couleur\n";
+    $message .= "Services : $service\n";
+
+    // Adresse e-mail du client (à remplacer par l'e-mail saisi dans le formulaire)
+    $email_client = "client@example.com";
+
+    // Envoi de l'e-mail au client
+    $from = "votre@email.com"; // Remplacez par votre adresse e-mail
+    $headers = "From:" . $from;
+    mail($email_client, $subject, $message, $headers);
+
+    // Confirmation d'envoi
+    echo "Le récapitulatif du devis a été envoyé à $email_client.";
+}
+?> -->
+
 </html>
