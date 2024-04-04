@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -75,7 +76,7 @@
                 <input type="radio" id="OetR" name="service" value="Retouches et ourlet" />
                 <label for="OetR">Retouches et ourlet (50.00 €)</label>
                 <br><br>
-                <input type="submit" value="Envoyer mon devis" class="btn btn-outline-primary"><br>
+                <input type="submit" name="devis" value="Envoyer mon devis" class="btn btn-outline-primary"><br>
             </form>
         </div>
     </div>
@@ -84,7 +85,7 @@
 
 <!-- chat gpt à modifier !!! -->
 <!-- <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["devis"])) {
     // Capturer les données soumises dans le formulaire
     $description = $_POST["description"];
     $vetements = $_POST["vetements"];
@@ -104,7 +105,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message .= "Services : $service\n";
 
     // Adresse e-mail du client (à remplacer par l'e-mail saisi dans le formulaire)
-    $email_client = "client@example.com";
+    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']===true){
+        $email_client = $_SESSION['email'];
+    }
+    else{
+        header("Location : page_de_login.php");
+        exit;
+    }
 
     // Envoi de l'e-mail au client
     $from = "votre@email.com"; // Remplacez par votre adresse e-mail
