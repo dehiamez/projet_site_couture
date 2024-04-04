@@ -1,6 +1,6 @@
  <?php
     session_start();
-
+    $_SESSION['loggedin'] = false;
     $hote = "localhost";
     $login = "root";
     $nameDB = "Couture";

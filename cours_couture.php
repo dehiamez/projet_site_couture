@@ -1,16 +1,3 @@
-<?php
-    session_start();
-
-    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true){
-        
-    }
-    else
-    {
-        header("Location: page_de_login.php");
-        exit;
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -40,7 +27,6 @@
                     d'ourlets, la pose
                     de fermeture éclair, de boutons, etc.
                 </p>
-                <input type="submit" value="S'inscire à ce cours" class="btn btn-outline-primary form-control">
             </div>
             <div class="col-sm-4 info_cours">
                 <p>
@@ -114,6 +100,33 @@
                 </p>
             </div>
         </div>
+        <?php
+        session_start();
+
+        if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] === false){
+
+            $bouton_login = '<button class="btn btn-outline-primary" onclick="window.location.href=\'page_de_login.php\'">Me connecter pour accéder aux inscriptions</button>';
+            // echo '<script>';
+            echo $bouton_login;
+            // echo '</script>';
+        }
+
+        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true){
+            $cours = [
+            "cours_debutants" => "Couture pour débutants",
+            "cours_patron" => "Couture avec patron",
+            "cours_avancees" => "Cours avancée"
+            ];
+
+            foreach ($cours as $cours_key => $cours_titre) {
+                $boutons_cours = '<input type="submit" value="S\'inscrire à ce cours" class="btn btn-outline-primary form-control">';
+                echo '<script>';
+                echo 'document.querySelector(".'.$cours_key.' p").insertAdjacentHTML("afterend", "' . addslashes($boutons_cours) . '");';
+                echo '</script>';
+            }
+        }
+        ?>
+
     </div>
 </body>
 <?php include("footer_couture.php")?>
