@@ -82,7 +82,7 @@
 </body>
 <?php include("footer_couture.php")?>
 
-<!-- chat gpt -->
+<!-- chat gpt à modifier !!! -->
 <!-- <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Capturer les données soumises dans le formulaire
