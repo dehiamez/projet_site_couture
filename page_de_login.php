@@ -121,8 +121,7 @@
         
         $sql_check_email = $connexion->query("SELECT * FROM Utilisateurs WHERE Email = '$email'");
         if (($sql_check_email->rowCount()) > 0 ){
-            echo "L'utilisateur $email existe déjà, connectez-vous ou inscrivez-vous avec une autre adresse e-mail.";
-        }
+            echo "<script type='text/javascript'>alert('L\'utilisateur $email existe déjà, connectez-vous ou inscrivez-vous avec une autre adresse e-mail.')</script>";        }
         else{
         $sql_insert_data = "INSERT INTO Utilisateurs (Nom,Prenom, Date_N, Email, Mdp) VALUES ('$nom','$prenom','$date_n','$email','$mdp')";
         $connexion->exec($sql_insert_data);
