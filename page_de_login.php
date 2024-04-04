@@ -103,6 +103,7 @@
                 }
                 else{
                     $_SESSION['loggedin'] = true;
+                    $_SESSION['email'] = $email;
                     header("Location: COUTUREFORYOU.php");
                     //ajouter les boutons pour les cours
                     exit;
