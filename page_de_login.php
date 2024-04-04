@@ -129,6 +129,7 @@
         $sql_insert_data = "INSERT INTO Utilisateurs (Nom,Prenom, Date_N, Email, Mdp) VALUES ('$nom','$prenom','$date_n','$email','$mdp')";
         $connexion->exec($sql_insert_data);
         header("Location: COUTUREFORYOU.php");
+        //ajouter les boutons des cours
         }
     }
  
@@ -162,7 +163,6 @@
         }
         else{
                     header("Location: COUTUREFORYOU.php");
-
         //     ajouter les boutons pour les cours
         }
 
