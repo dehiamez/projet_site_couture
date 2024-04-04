@@ -18,7 +18,7 @@
             <!-- formulaire de connexion  -->
 
             <div class="col-sm-6" id="leftpart">
-                <form method="POST" action="COUTUREFORYOU.php" class="form-control">
+                <form method="POST" action="page_de_login.php" class="form-control">
                     <h2 class="log">Se connecter</h2>
                     <label for="email">Adresse Email:</label>
                     <br />
@@ -29,7 +29,7 @@
                     <br />
                     <input type="password" name="psswrd_c" id="psswrd_c" class="form-control" required />
                     <br>
-                    <input type="submit" value="Se connecter" name="connection" class="btn btn-outline-primary" />
+                    <input type="submit" value="Se connecter" name="connexion" class="btn btn-outline-primary" />
                 </form>
             </div>
 
@@ -59,19 +59,19 @@
                     <label for="password">Mot de passe:</label>
                     <br />
                     <input type="password" id="psswrd" name="psswrd" class="form-control" required /><br>
-                    <input type="submit" name="inscription" id="inscription" value="S'inscrire"
-                        class="btn btn-outline-primary" />
+                    <input type="submit" name="inscription" value="S'inscrire" class="btn btn-outline-primary" />
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- code php permettant de créer son propre compte utilisateur et y accéder avec un mot de passe etc... -->
 
     <?php
     $hote = "localhost";
     $login = "root";
     $nameDB = "Couture";
+
+    //code php pour l'inscription
 
     //verifie si la base de donnee existe deja ou pas et la creee sinon
     if ( isset($_POST["inscription"])){
@@ -113,6 +113,7 @@
             $connexion->exec($sql_code);
         }
         
+        
         $nom = $_POST["nom"];
         $prenom = $_POST["prenom"];
         $email = $_POST["email"];
@@ -120,6 +121,8 @@
         $mdp = password_hash($_POST["psswrd"],PASSWORD_DEFAULT);
         
         $sql_check_email = $connexion->query("SELECT * FROM Utilisateurs WHERE Email = '$email'");
+       
+        //ajout d'un utilisateur si son adresse mail ne figure dans la base de données
         if (($sql_check_email->rowCount()) > 0 ){
             echo "<script type='text/javascript'>alert('L\'utilisateur $email existe déjà, connectez-vous ou inscrivez-vous avec une autre adresse e-mail.')</script>";        }
         else{
@@ -132,8 +135,37 @@
         echo "Erreur :". $e->getMessage();
     }
 
+        $connexion = null;
+    }
+
+    //code php pour la connexion
+
+    if (isset($_POST["connexion"])){
+        //connexion à la base de donnée
+        try{
+        $connexion = new PDO("mysql:host=$hote;dbname=$nameDB" , $login);
+        $connexion -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            
+    }
+    catch(PDOException $e){
+                echo "Erreur :". $e->getMessage();
+    }
+        //vérification que l'utilisateur existe déjà dans la base de donnée
+        $email = $_POST["email_c"];
+        $mdp = $_POST["psswrd_c"];
+
+        $sql_check_email = $connexion->query("SELECT * FROM Utilisateurs WHERE Email = '$email'");
+
+        if (($sql_check_email->rowCount()) == 0 ){
+            echo "<script type='text/javascript'>alert('L\'utilisateur $email n\'existe pas, inscrivez-vous.')</script>";
+        }
+        
+        // if()
+
     $connexion = null;
-}
+
+    }
+
 ?>
 
     <?php include("footer_couture.php")?>
