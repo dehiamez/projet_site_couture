@@ -119,8 +119,14 @@
         $date_n = $_POST["birthdate"];
         $mdp = password_hash($_POST["psswrd"],PASSWORD_DEFAULT);
         
+        $sql_check_email = $connexion->query("SELECT * FROM Utilisateurs WHERE Email = '$email'");
+        if (($sql_check_email->rowCount()) > 0 ){
+            echo "L'utilisateur $email existe déjà, connectez-vous ou inscrivez-vous avec une autre adresse e-mail.";
+        }
+        else{
         $sql_insert_data = "INSERT INTO Utilisateurs (Nom,Prenom, Date_N, Email, Mdp) VALUES ('$nom','$prenom','$date_n','$email','$mdp')";
         $connexion->exec($sql_insert_data);
+        }
     }
  
     catch (PDOException $e){
