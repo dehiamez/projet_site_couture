@@ -1,3 +1,16 @@
+<?php
+    session_start();
+
+    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true){
+        
+    }
+    else
+    {
+        header("Location: page_de_login.php");
+        exit;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
