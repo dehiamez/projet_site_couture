@@ -160,9 +160,11 @@
         if (($sql_check_email->rowCount()) == 0 ){
             echo "<script type='text/javascript'>alert('L\'utilisateur $email n\'existe pas, inscrivez-vous.')</script>";
         }
-        // else{
+        else{
+                    header("Location: COUTUREFORYOU.php");
+
         //     ajouter les boutons pour les cours
-        // }
+        }
 
     $connexion = null;
 
