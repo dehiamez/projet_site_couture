@@ -114,7 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["devis"])) {
     }
 
     // Envoi de l'e-mail au client
-    $from = "votre@email.com"; // Remplacez par votre adresse e-mail
+    $from = "coutureForFun@mail.com"; // Remplacez par votre adresse e-mail
     $headers = "From:" . $from;
     mail($email_client, $subject, $message, $headers);
 
