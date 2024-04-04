@@ -22,12 +22,12 @@
                     <h2 class="log">Se connecter</h2>
                     <label for="email">Adresse Email:</label>
                     <br />
-                    <input type="email" name="email" id="email" value="adresse@mail.com" class="form-control"
+                    <input type="email" name="email_c" id="email_c" value="adresse@mail.com" class="form-control"
                         required />
                     <br />
                     <label for="mdp">Mot de passe :</label>
                     <br />
-                    <input type="password" name="psswrd" id="psswrd" class="form-control" required />
+                    <input type="password" name="psswrd_c" id="psswrd_c" class="form-control" required />
                     <br>
                     <input type="submit" value="Se connecter" name="connection" class="btn btn-outline-primary" />
                 </form>
@@ -36,7 +36,7 @@
             <!-- formulaire d'inscription -->
 
             <div class="col-sm-6" id="rightpart">
-                <form method="POST" action="COUTUREFORYOU.php" class="form-control">
+                <form method="POST" action="page_de_login.php" class="form-control">
                     <h2 class="log">Créer un nouveau compte</h2>
                     <label for="nom">Nom :</label>
                     <br />
@@ -59,7 +59,8 @@
                     <label for="password">Mot de passe:</label>
                     <br />
                     <input type="password" id="psswrd" name="psswrd" class="form-control" required /><br>
-                    <input type="submit" name="inscription" value="S'inscrire" class="btn btn-outline-primary" />
+                    <input type="submit" name="inscription" id="inscription" value="S'inscrire"
+                        class="btn btn-outline-primary" />
                 </form>
             </div>
         </div>
@@ -73,12 +74,11 @@
     $nameDB = "Couture";
 
     //verifie si la base de donnee existe deja ou pas et la creee sinon
-    if ($_SERVER["REQUEST_METHOD"]=="POST" && isset($_POST["inscription"])){
+    if ( isset($_POST["inscription"])){
         try{
         $connexion = new PDO("mysql:host=$hote;dbname=$nameDB" , $login);
         $connexion -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-     echo "La base de données existe déjà";
+            
     }
     catch(PDOException $e){
         try{
@@ -87,8 +87,6 @@
 
             $codesql = "CREATE DATABASE Couture";
             $connexion->exec($codesql);
-            
-            echo "BD bien créée";
         }
         catch(PDOException $ex){
             echo "Erreur :".$ex ->getMessage();
@@ -118,14 +116,11 @@
         $nom = $_POST["nom"];
         $prenom = $_POST["prenom"];
         $email = $_POST["email"];
-        $date_n = $_POST["birthday"];
+        $date_n = $_POST["birthdate"];
         $mdp = password_hash($_POST["psswrd"],PASSWORD_DEFAULT);
         
         $sql_insert_data = "INSERT INTO Utilisateurs (Nom,Prenom, Date_N, Email, Mdp) VALUES ('$nom','$prenom','$date_n','$email','$mdp')";
         $connexion->exec($sql_insert_data);
-
-        echo 'Données insérées avec succès';
-
     }
  
     catch (PDOException $e){
