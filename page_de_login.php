@@ -128,6 +128,7 @@
         else{
         $sql_insert_data = "INSERT INTO Utilisateurs (Nom,Prenom, Date_N, Email, Mdp) VALUES ('$nom','$prenom','$date_n','$email','$mdp')";
         $connexion->exec($sql_insert_data);
+        header("Location: COUTUREFORYOU.php");
         }
     }
  
@@ -159,8 +160,9 @@
         if (($sql_check_email->rowCount()) == 0 ){
             echo "<script type='text/javascript'>alert('L\'utilisateur $email n\'existe pas, inscrivez-vous.')</script>";
         }
-        
-        // if()
+        // else{
+        //     ajouter les boutons pour les cours
+        // }
 
     $connexion = null;
 
