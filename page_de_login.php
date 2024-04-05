@@ -97,9 +97,9 @@
             echo "<p style='color:#FFC300'>L'utilisateur $email n'existe pas, inscrivez-vous.</p>";
         }
         else{
-                $sql_check_pswd = $connexion->query("SELECT * FROM Utilisateurs WHERE Mdp = '$mdp' AND Email = '$email'");
-                if (($sql_check_pswd->rowCount())==0){
-                    echo "<p style='color:red'>Mot de passe ou adresse mail incorrecte.</p>";
+                $hash = $connexion->query("SELECT Mdp FROM Utilisateurs WHERE Email = '$email'");
+                if (!password_verify($mdp,$hash)){
+                    echo "<p style='color:red'>Mot de passe incorrecte.</p>";
                 }
                 else{
                     $_SESSION['loggedin'] = true;
