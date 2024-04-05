@@ -94,8 +94,8 @@
             $sql_check_email = $connexion->query("SELECT * FROM Utilisateurs WHERE Email = '$email'");
 
             if (($sql_check_email->rowCount()) == 1 ){
-                $result = $connexion->query("SELECT Mdp FROM Utilisateurs WHERE Email = '$email'");
-                $hash = $result->fetch(PDO::FETCH_ASSOC);
+                $hash = $connexion->query("SELECT Mdp FROM Utilisateurs WHERE Email = '$email'")->fetchColumn();
+                // $hash = $result->fetch(PDO::FETCH_ASSOC);
                     
                 if (password_verify($mdp,$hash)){
                     $_SESSION['loggedin'] = true;

@@ -15,7 +15,7 @@
     <?php include ("nav_couture.php")?>
     <div class="container">
         <div class="row element">
-            <form action="#" method="post" class="form-control">
+            <form action="devis_couture.php" method="post" class="form-control">
                 <h3>Devis</h3>
                 <p>Description : </p>
                 <textarea name="description" id="description"></textarea>
@@ -85,6 +85,7 @@
 
 <!-- chat gpt à modifier !!! -->
 <!-- <?php
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["devis"])) {
     // Capturer les données soumises dans le formulaire
     $description = $_POST["description"];
@@ -109,12 +110,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["devis"])) {
         $email_client = $_SESSION['email'];
     }
     else{
-        header("Location : page_de_login.php");
-        exit;
+        $bouton_login = '<button class="btn btn-outline-primary" onclick="window.location.href=\'page_de_login.php\'">Me connecter pour accéder aux inscriptions</button>';
+        echo $bouton_login;
     }
 
     // Envoi de l'e-mail au client
-    $from = "coutureForFun@mail.com"; // Remplacez par votre adresse e-mail
+    $from = "coutureForFun@mail.com";
     $headers = "From:" . $from;
     mail($email_client, $subject, $message, $headers);
 
