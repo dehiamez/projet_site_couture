@@ -15,7 +15,7 @@
     <?php include ("nav_couture.php")?>
     <div class="container">
         <div class="row element">
-            <form action="devis_couture.php" method="post" class="form-control">
+            <form action="recap_devis.php" method="post" class="form-control">
                 <h3>Devis</h3>
                 <p>Description : </p>
                 <textarea name="description" id="description"></textarea>
@@ -68,12 +68,12 @@
                 <input type="color" name="couleur" id="couleur" />
                 <p>Services : </p>
 
-                <input type="radio" id="ourlet" name="service" value="Ourlet" />
+                <input type="radio" id="ourlet" name="service" value="Ourlet à 20€" />
                 <label for="ourlet">Ourlet (20.00 €)
                 </label><br />
-                <input type="radio" id="retouches" name="service" value="Retouches" />
+                <input type="radio" id="retouches" name="service" value="Retouches à 30€" />
                 <label for="retouches">Retouches (30.00 €)</label><br />
-                <input type="radio" id="OetR" name="service" value="Retouches et ourlet" />
+                <input type="radio" id="OetR" name="service" value="Retouches et ourlet à 50€" />
                 <label for="OetR">Retouches et ourlet (50.00 €)</label>
                 <br><br>
                 <input type="submit" name="devis" value="Envoyer mon devis" class="btn btn-outline-primary"><br>
@@ -82,17 +82,17 @@
     </div>
 </body>
 <?php include("footer_couture.php")?>
+<?php include("envoyer_mail.php")?>
 
 <!-- chat gpt à modifier !!! -->
-<?php
+<!-- <?php
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["devis"])) {
+if (isset($_POST["devis"])) {
     // Capturer les données soumises dans le formulaire
     $description = $_POST["description"];
     $vetements = $_POST["vetements"];
     $tissu = $_POST["tissu"];
     $taille = $_POST["taille"];
-    $couleur = $_POST["couleur"];
     $service = $_POST["service"];
 
     
@@ -107,11 +107,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["devis"])) {
         $message .= "Type de vêtements : $vetements\n";
         $message .= "Type de tissu : $tissu\n";
         $message .= "Taille : $taille\n";
-        $message .= "Couleur : $couleur\n";
         $message .= "Services : $service\n";
 
         // Envoi de l'e-mail au client
-        $headers = "From : coutureForFun@mail.com" ;
+        $headers = "From : meziandehia@gmail.com" ;
         $headers.="Content-Type : text/html;charset=utf-8\r\n";
         
         if(mail($email_client, $subject, $message, $headers)){
@@ -129,6 +128,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["devis"])) {
 
     
 }
-?>
+?>  -->
 
 </html>
