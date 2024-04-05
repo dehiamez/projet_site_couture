@@ -84,7 +84,7 @@
 <?php include("footer_couture.php")?>
 
 <!-- chat gpt à modifier !!! -->
-<!-- <?php
+<?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["devis"])) {
     // Capturer les données soumises dans le formulaire
@@ -122,6 +122,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["devis"])) {
     // Confirmation d'envoi
     echo "Le récapitulatif du devis a été envoyé à $email_client.";
 }
-?> -->
+?>
 
 </html>
