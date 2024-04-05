@@ -102,29 +102,26 @@
         </div>
         <?php
         session_start();
-
-        if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] === false){
-
-            $bouton_login = '<button class="btn btn-outline-primary" onclick="window.location.href=\'page_de_login.php\'">Me connecter pour accéder aux inscriptions</button>';
-            // echo '<script>';
-            echo $bouton_login;
-            // echo '</script>';
-        }
-
+        
         if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true){
             $cours = [
-            "cours_debutants" => "Couture pour débutants",
-            "cours_patron" => "Couture avec patron",
-            "cours_avancees" => "Cours avancée"
+            "cours_debutants",
+            "cours_patron",
+            "cours_avancees"
             ];
 
-            foreach ($cours as $cours_key => $cours_titre) {
+            foreach ($cours as $cour) {
                 $boutons_cours = '<input type="submit" value="S\'inscrire à ce cours" class="btn btn-outline-primary form-control">';
                 echo '<script>';
-                echo 'document.querySelector(".'.$cours_key.' p").insertAdjacentHTML("afterend", "' . addslashes($boutons_cours) . '");';
+                echo 'document.querySelector(".'.$cour.' p").insertAdjacentHTML("afterend", "' . addslashes($boutons_cours) . '");';
                 echo '</script>';
             }
         }
+        else{
+            $bouton_login = '<button class="btn btn-outline-primary" onclick="window.location.href=\'page_de_login.php\'">Me connecter pour accéder aux inscriptions</button>';
+            echo $bouton_login;
+        }
+        
         ?>
 
     </div>

@@ -68,8 +68,8 @@
             $connexion->exec($sql_insert_data);
 
             $_SESSION['loggedin'] = true;
+            $_SESSION['email'] = $email;
             header("Location: COUTUREFORYOU.php");
-            //ajouter les boutons des cours
             exit;
             }
         }
@@ -99,13 +99,12 @@
         else{
                 $sql_check_pswd = $connexion->query("SELECT * FROM Utilisateurs WHERE Mdp = '$mdp' AND Email = '$email'");
                 if (($sql_check_pswd->rowCount())==0){
-                    echo "<p style='color:#FFC300'>Mot de passe ou adresse mail incorrecte.</p>";
+                    echo "<p style='color:red'>Mot de passe ou adresse mail incorrecte.</p>";
                 }
                 else{
                     $_SESSION['loggedin'] = true;
                     $_SESSION['email'] = $email;
                     header("Location: COUTUREFORYOU.php");
-                    //ajouter les boutons pour les cours
                     exit;
                 }
             }

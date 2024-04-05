@@ -104,7 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["devis"])) {
     $message .= "Couleur : $couleur\n";
     $message .= "Services : $service\n";
 
-    // Adresse e-mail du client (à remplacer par l'e-mail saisi dans le formulaire)
+    // Adresse e-mail du client
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']===true){
         $email_client = $_SESSION['email'];
     }
