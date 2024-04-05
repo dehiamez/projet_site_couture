@@ -84,36 +84,37 @@
     if (isset($_POST["connexion"])){
         //connexion à la base de donnée
         try{
-        $connexion = new PDO("mysql:host=$hote;dbname=$nameDB" , $login);
-        $connexion -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-         
-        //vérification que l'utilisateur existe déjà dans la base de donnée
-        $email = $_POST["email_c"];
-        $mdp = $_POST["psswrd_c"];
+            $connexion = new PDO("mysql:host=$hote;dbname=$nameDB" , $login);
+            $connexion -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            
+            //vérification que l'utilisateur existe déjà dans la base de donnée
+            $email = $_POST["email_c"];
+            $mdp = $_POST["psswrd_c"];
 
-        $sql_check_email = $connexion->query("SELECT * FROM Utilisateurs WHERE Email = '$email'");
+            $sql_check_email = $connexion->query("SELECT * FROM Utilisateurs WHERE Email = '$email'");
 
-        if (($sql_check_email->rowCount()) == 0 ){
-            echo "<p style='color:#FFC300'>L'utilisateur $email n'existe pas, inscrivez-vous.</p>";
-        }
-        else{
-                $hash = $connexion->query("SELECT Mdp FROM Utilisateurs WHERE Email = '$email'");
-                if (!password_verify($mdp,$hash)){
-                    echo "<p style='color:red'>Mot de passe incorrecte.</p>";
-                }
-                else{
+            if (($sql_check_email->rowCount()) == 1 ){
+                $result = $connexion->query("SELECT Mdp FROM Utilisateurs WHERE Email = '$email'");
+                $hash = $result->fetch(PDO::FETCH_ASSOC);
+                    
+                if (password_verify($mdp,$hash)){
                     $_SESSION['loggedin'] = true;
                     $_SESSION['email'] = $email;
                     header("Location: COUTUREFORYOU.php");
                     exit;
                 }
+                else{
+                    echo "<p style='color:red'>Mot de passe incorrecte.</p>";    
+                }
+            }
+            else{
+                echo "<p style='color:#FFC300'>L'utilisateur $email n'existe pas, inscrivez-vous.</p>";
             }
         }
         catch(PDOException $e){
             echo "Erreur :". $e->getMessage();
         }   
         $connexion = null;
-
     }
 ?>
 
