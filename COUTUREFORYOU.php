@@ -57,6 +57,7 @@
                         mariage.
                     </p>
                 </div>
+                <?php include("temoignages.php")?>
                 <div id="avis">
                     <h5>Les témoignages de clients</h5>
                     <label for="commentaire">Ajoutez votre avis : </label><br />
