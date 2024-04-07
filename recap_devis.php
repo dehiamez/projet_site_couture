@@ -16,8 +16,8 @@
 <body>
     <h3>Récapitulatif de votre devis</h3>
     <div class="container recap">
-        <div class="row elements "></div>
-        <?php
+        <div class="row elements ">
+            <?php
 
             $description = $_POST["description"];
             $vetements = $_POST["vetements"];
@@ -25,15 +25,16 @@
             $taille = $_POST["taille"];
             $service = $_POST["service"];
     ?>
-        <h5>Voici le récapitulatif de votre devis :</h5>
-        <p>Description : <?= htmlspecialchars($description)?></p>
-        <p>Type de vêtements : <?= htmlspecialchars($vetements)?></p>
-        <p>Type de tissu : <?= htmlspecialchars($tissu)?></p>
-        <p>Taille : <?= htmlspecialchars($taille)?></p>
-        <p>Services : <?= htmlspecialchars($service)?></p>
+            <h5>Voici le récapitulatif de votre devis :</h5>
+            <p>Description : <?= htmlspecialchars($description)?></p><br>
+            <p>Type de vêtements : <?= htmlspecialchars($vetements)?></p><br>
+            <p>Type de tissu : <?= htmlspecialchars($tissu)?></p><br>
+            <p>Taille : <?= htmlspecialchars($taille)?></p><br>
+            <p>Services : <?= htmlspecialchars($service)?></p>
 
-        <button class="btn btn-outline-primary" onclick="window.location.href='COUTUREFORYOU.php'">Retour
-            à la page d'accueil</button>
+            <button class="btn btn-outline-primary" onclick="window.location.href='COUTUREFORYOU.php'">Retour
+                à la page d'accueil</button>
+        </div>
     </div>
 </body>
 
