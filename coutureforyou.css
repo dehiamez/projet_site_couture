@@ -77,7 +77,16 @@ form {
 .info_cours {
 	font-style: italic;
 }
-/* mise en page du recap de devis */
+/* mise en page du recap de devis et d'inscription de cours */
 .recap{
-
+	background-color: #54dffe48;
+	border-radius: 30px;
+	margin-top: 50px;
+	padding: 80px 10px;
+	text-align: center;
+	align-items: center;
+	display:flex;
+	justify-content: center;
+	height:500px;
 }
+

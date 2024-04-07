@@ -84,7 +84,7 @@
 <?php include("footer_couture.php")?>
 <?php include("envoyer_mail.php")?>
 
-<!-- <?php
+<?php
 
 if (isset($_POST["devis"])) {
     // Capturer les données soumises dans le formulaire
@@ -127,6 +127,6 @@ if (isset($_POST["devis"])) {
 
     
 }
-?>  -->
+?>
 
 </html>

@@ -1,6 +1,6 @@
 <?php session_start();?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -11,21 +11,31 @@
     <title>Récapitulatif inscription à un cours</title>
 </head>
 
-<body class="recap">
+<body>
+    <h3>Récapitulatif de votre inscription au cours</h3>
     <?php 
         $cours = [
             "cours_debutants"=>"cours pour débutants",
             "cours_patron"=> "cours avec patrons",
             "cours_avancees"=>"cours avancés"
             ];
-        
-        $inscription = "<h3>Récapitulatif de votre inscription au cours</h3><br>";
-        $inscription .= $_SESSION['nom']." ".$_SESSION['prenom']." ( ".$_SESSION['email'].") est bien inscrit au ".$cours[$_SESSION['cours']].".<br><br>";
-        $inscription .= "Vous ne pouvez pas vous inscrire à un autre cours en parallèle.";
-        echo $inscription; 
-        
-    ?>
+        ?>
+    <div class="container recap">
+        <div class="elements row">
+            <div>
+                <h6><?= htmlspecialchars($_SESSION['nom'])?> <?=htmlspecialchars($_SESSION['prenom'])?> (
+                    <?= htmlspecialchars($_SESSION['email'])?> ) est
+                    bien inscrit au
+                    <?=htmlspecialchars($cours[$_SESSION['cours']])?>.</h6>
+                <p>Vous ne pouvez pas vous inscrire à un autre cours en parallèle.</p>
+
+                <button class="btn btn-outline-primary" onclick="window.location.href='COUTUREFORYOU.php'">Retour
+                    à la page d'accueil</button>
+            </div>
+        </div>
+    </div>
 
 </body>
+<?php include("footer_couture.php")?>
 
 </html>

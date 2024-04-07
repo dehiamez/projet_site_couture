@@ -134,9 +134,7 @@
         else{
             $bouton_login = '<button class="btn btn-outline-primary" onclick="window.location.href=\'page_de_login.php\'">Me connecter pour accéder aux inscriptions</button>';
             echo $bouton_login;
-        }
-        
-        
+        }     
         ?>
 
     </div>
