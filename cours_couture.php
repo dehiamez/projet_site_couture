@@ -112,25 +112,22 @@
         <?php        
         if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true){
             $cours = [
-            "cours_debutants"=>"cours de débutants",
+            "cours_debutants"=>"cours pour débutants",
             "cours_patron"=> "cours avec patrons",
             "cours_avancees"=>"cours avancés"
             ];
 
             foreach ($cours as $cour => $nom_cours) {
-                $boutons_cours = '<form action="confirmation_cours.php" method="POST"><input type="submit" name="'.$cour.'" value="S\'inscrire à '.$nom_cours.'" class="btn btn-outline-primary form-control"></form>';
+                $boutons_cours = '<form action="confirmation_cours.php" method="POST"><input type="submit" name="'.$cour.'" value="S\'inscrire au '.$nom_cours.'" class="btn btn-outline-primary form-control"></form>';
                 echo '<script>';
                 echo 'document.querySelector(".'.$cour.' p").insertAdjacentHTML("afterend", "' . addslashes($boutons_cours) . '");';
                 echo '</script>';
             }
-            foreach($cours as $cour){
-                if (isset($_POST[$cour])){
+            foreach($cours as $cour=>$nom_cours){
+                if (isset($_POST[$cour]) && $_SESSION['cours']=="Aucun cours"){
                     $email = $_SESSION['email'];
-                    $cours_inscription = $cour;
-
-                    $sql_update_cours = "UPDATE Utilisateurs SET Cours = '$cours_inscription' WHERE Email = '$email'";
+                    $sql_update_cours = "UPDATE Utilisateurs SET Cours = '$nom_cours' WHERE Email = '$email'";
                     $connexion->exec($sql_update_cours);
-                    
                 }
             }
         }

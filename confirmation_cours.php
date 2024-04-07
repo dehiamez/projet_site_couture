@@ -13,9 +13,18 @@
 
 <body class="recap">
     <?php 
-        $inscription = "<h3>Récapitulatif de votre inscription au cours</h3>";
-        $inscription .= $_SESSION['nom']." ".$_SESSION['prenom']." ( ".$_SESSION['email'].") est bien inscrit au ".$_SESSION['cours'].".";
-        echo $inscription; ?>
+        $cours = [
+            "cours_debutants"=>"cours pour débutants",
+            "cours_patron"=> "cours avec patrons",
+            "cours_avancees"=>"cours avancés"
+            ];
+        
+        $inscription = "<h3>Récapitulatif de votre inscription au cours</h3><br>";
+        $inscription .= $_SESSION['nom']." ".$_SESSION['prenom']." ( ".$_SESSION['email'].") est bien inscrit au ".$cours[$_SESSION['cours']].".<br><br>";
+        $inscription .= "Vous ne pouvez pas vous inscrire à un autre cours en parallèle.";
+        echo $inscription; 
+        
+    ?>
 
 </body>
 
