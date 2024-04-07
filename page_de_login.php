@@ -175,8 +175,8 @@
 
     if (($sql_check_email->rowCount()) == 1 ){
     $hash = $connexion->query("SELECT Mdp FROM Utilisateurs WHERE Email = '$email'")->fetchColumn();
-    // $hash = $result->fetch(PDO::FETCH_ASSOC);
 
+    // vérification du mot de passe
     if (password_verify($mdp,$hash)){
     $_SESSION['loggedin'] = true;
     
@@ -184,7 +184,6 @@
     $_SESSION['nom'] = $connexion->query("SELECT nom FROM Utilisateurs WHERE Email = '$email'")->fetchColumn();    
     $_SESSION['prenom'] = $connexion->query("SELECT prenom FROM Utilisateurs WHERE Email = '$email'")->fetchColumn();
     $_SESSION['cours'] = $connexion->query("SELECT cours FROM Utilisateurs WHERE Email = '$email'")->fetchColumn();
-
 
     header("Location: COUTUREFORYOU.php");
     exit;

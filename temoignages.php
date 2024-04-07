@@ -33,14 +33,13 @@
         $connexion->exec($sql_insert_data);
         
     }
-    
+    // affichage des avis à partir de la base de données
     $rqt = $connexion->query("SELECT * FROM Avis");
     $commentaires = $rqt->fetchAll(PDO::FETCH_ASSOC);
 
     foreach($commentaires as $commentaire){
         echo "<cite id='temoin'> - \"".$commentaire['Comm']."\"</cite><br>";   
     }
-
     $connexion = null;
 
 ?>

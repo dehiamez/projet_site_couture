@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["devis"])) {
         $message .= "Services : $service\n";
 
         // Envoi de l'e-mail au client
-        $headers = "From : meziandehia@gmail.com" ;
+        $headers = "From : coutureForYou@mail.com" ;
         $headers.="Content-Type : text/html;charset=utf-8\r\n";
         
         if(mail($email_client, $subject, $message, $headers)){

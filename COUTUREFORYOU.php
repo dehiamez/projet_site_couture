@@ -57,9 +57,11 @@
                         mariage.
                     </p>
                 </div>
+                <!-- Partie avis provenant de la table Avis de la base de données-->
                 <div id="temoignages">
-                    <?php require("temoignages.php")?>
+                    <?php include("temoignages.php")?>
                 </div>
+
                 <form action="" method="POST" id=avis>
                     <h5>Les témoignages de clients</h5>
                     <label for=" commentaire">Ajoutez votre avis : </label><br />

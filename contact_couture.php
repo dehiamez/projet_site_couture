@@ -15,9 +15,11 @@
 <?php include ("nav_couture.php") ?>
 
 <body>
+    <!-- Formulaire de contact -->
     <div class="container">
         <div class="row">
-            <form action="#mailto:coutureForYou@mail.com" method="POST" class="form-control">
+            <!-- Nous avons essayé de faire envoyer le mail mais on n'a pas réussi. L'action "mailto" n'était pas la bonne. -->
+            <form action="mailto:coutureForYou@mail.com" method="POST" class="form-control">
                 <h3>Contact</h3>
                 <label for="name">Nom et Prénom :</label>
                 <input type="text" id="name" class="form-control" pattern="[A-Za-z\ ]+" required>
@@ -35,6 +37,7 @@
             </form>
         </div>
     </div>
+    <!-- Coordonnées de l'entreprise -->
     <div class="contact container">
         <div class="row">
             <h6>Pour nous contacter : </h6>

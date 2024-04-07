@@ -1,5 +1,6 @@
 <?php
     session_start();
+    // Connexion à la base de données
     $hote = "localhost";
     $login = "root";
     $nameDB = "Couture";
@@ -22,6 +23,7 @@
 <body>
     <?php include ("nav_couture.php") ?>
     <h3>Cours</h3>
+    <!-- Informations sur les cours -->
     <div class="container">
         <div class="row elements cours cours_debutants">
             <div class="col-sm-8" id="cours_debutants">
@@ -109,6 +111,7 @@
                 </p>
             </div>
         </div>
+        <!-- code qui permet d'afficher les boutons d'inscription aux cours -->
         <?php        
         if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true){
             $cours = [
@@ -116,13 +119,14 @@
             "cours_patron"=> "cours avec patrons",
             "cours_avancees"=>"cours avancés"
             ];
-
+            // Si l'utilisateur est connecté, un bouton d'inscription s'ajoute pour chaque cours
             foreach ($cours as $cour => $nom_cours) {
                 $boutons_cours = '<form action="confirmation_cours.php" method="POST"><input type="submit" name="'.$cour.'" value="S\'inscrire au '.$nom_cours.'" class="btn btn-outline-primary form-control"></form>';
                 echo '<script>';
                 echo 'document.querySelector(".'.$cour.' p").insertAdjacentHTML("afterend", "' . addslashes($boutons_cours) . '");';
                 echo '</script>';
             }
+            // Ajout du cours dans la table Utilisateurs
             foreach($cours as $cour=>$nom_cours){
                 if (isset($_POST[$cour]) && $_SESSION['cours']=="Aucun cours"){
                     $email = $_SESSION['email'];
@@ -131,12 +135,12 @@
                 }
             }
         }
+        //Si l'utilisateur n'est pas connecté, ajout d'un bouton qui le renvoie sur la page de login
         else{
             $bouton_login = '<button class="btn btn-outline-primary" onclick="window.location.href=\'page_de_login.php\'">Me connecter pour accéder aux inscriptions</button>';
             echo $bouton_login;
         }     
         ?>
-
     </div>
 </body>
 <?php include("footer_couture.php")?>

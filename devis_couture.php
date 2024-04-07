@@ -15,6 +15,7 @@
     <?php include ("nav_couture.php")?>
     <div class="container">
         <div class="row element">
+            <!-- Formulaire de devis -->
             <form action="recap_devis.php" method="post" class="form-control">
                 <h3>Devis</h3>
                 <p>Description : </p>
@@ -94,8 +95,6 @@ if (isset($_POST["devis"])) {
     $taille = $_POST["taille"];
     $service = $_POST["service"];
 
-    
-    // Adresse e-mail du client
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']===true){
         $email_client = $_SESSION['email'];
 
@@ -108,8 +107,8 @@ if (isset($_POST["devis"])) {
         $message .= "Taille : $taille\n";
         $message .= "Services : $service\n";
 
-        // Envoi de l'e-mail au client
-        $headers = "From : meziandehia@gmail.com" ;
+        // Envoi de l'e-mail au client (cette partie ne fonctionne pas comme voulu, nous avons eu un probleme avec le serveur SMTP)
+        $headers = "From : coutureForYou@mail.com" ;
         $headers.="Content-Type : text/html;charset=utf-8\r\n";
         
         if(mail($email_client, $subject, $message, $headers)){
@@ -117,9 +116,10 @@ if (isset($_POST["devis"])) {
             echo "Le récapitulatif du devis a été envoyé à $email_client.";
         }
         else{
-            echo"erreur lors de l'envoi à $email_client."
+            echo"Erreur lors de l'envoi à $email_client."
 ;       }
     }
+    // Affichage d'un bouton pour se connecter si l'utilisateur ne l'est pas. 
     else{
         $bouton_login = '<button class="btn btn-outline-primary" onclick="window.location.href=\'page_de_login.php\'">Me connecter pour accéder aux inscriptions</button>';
         echo $bouton_login;

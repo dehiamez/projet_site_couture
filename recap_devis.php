@@ -32,6 +32,7 @@
             <p>Taille : <?= htmlspecialchars($taille)?></p><br>
             <p>Services : <?= htmlspecialchars($service)?></p>
 
+            <!-- affichage d'un bouton permettant de revenir à la page d'accueil -->
             <button class="btn btn-outline-primary" onclick="window.location.href='COUTUREFORYOU.php'">Retour
                 à la page d'accueil</button>
         </div>

@@ -1,4 +1,5 @@
 <?php session_start();?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -20,18 +21,17 @@
             "cours_avancees"=>"cours avancés"
             ];
         ?>
+    <!-- Affichage de la confirmation d'inscription au cours -->
     <div class="container recap">
         <div class="elements row">
-            <div>
-                <h6><?= htmlspecialchars($_SESSION['nom'])?> <?=htmlspecialchars($_SESSION['prenom'])?> (
-                    <?= htmlspecialchars($_SESSION['email'])?> ) est
-                    bien inscrit au
-                    <?=htmlspecialchars($cours[$_SESSION['cours']])?>.</h6>
-                <p>Vous ne pouvez pas vous inscrire à un autre cours en parallèle.</p>
+            <h6><?= htmlspecialchars($_SESSION['nom'])?> <?=htmlspecialchars($_SESSION['prenom'])?> (
+                <?= htmlspecialchars($_SESSION['email'])?> ) est
+                bien inscrit au
+                <?=htmlspecialchars($cours[$_SESSION['cours']])?>.</h6>
+            <p>Vous ne pouvez pas vous inscrire à un autre cours en parallèle.</p>
 
-                <button class="btn btn-outline-primary" onclick="window.location.href='COUTUREFORYOU.php'">Retour
-                    à la page d'accueil</button>
-            </div>
+            <button class="btn btn-outline-primary" onclick="window.location.href='COUTUREFORYOU.php'">Retour
+                à la page d'accueil</button>
         </div>
     </div>
 
