@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["devis"])) {
             echo "Le récapitulatif du devis a été envoyé à $email_client.";
         }
         else{
-            echo"erreur lors de l'envoi à $email_client."
+            echo"Erreur lors de l'envoi à $email_client."
 ;       }
     }
     else{

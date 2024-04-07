@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -100,9 +103,7 @@
                 </p>
             </div>
         </div>
-        <?php
-        session_start();
-        
+        <?php        
         if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true){
             $cours = [
             "cours_debutants",

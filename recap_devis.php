@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -11,7 +14,6 @@
 </head>
 
 <body class="recap">
-
     <?php
 
         if (isset($_POST["devis"])) {
@@ -30,7 +32,7 @@
             $message .= "Taille : $taille<br>";
             $message .= "Services : $service<br>";
             echo $message;}
-?>
+    ?>
 </body>
 
 </html>
