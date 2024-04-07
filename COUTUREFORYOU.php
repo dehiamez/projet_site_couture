@@ -57,13 +57,16 @@
                         mariage.
                     </p>
                 </div>
+
                 <?php include("temoignages.php")?>
-                <div id="avis">
+
+                <form action="" method="POST" class="#" id=avis>
                     <h5>Les témoignages de clients</h5>
-                    <label for="commentaire">Ajoutez votre avis : </label><br />
+                    <label for=" commentaire">Ajoutez votre avis : </label><br />
                     <textarea name="commentaire" id="commentaire" class="form-control"></textarea>
-                    <br><input type="submit" value="Partager mon avis" class="btn btn-outline-primary">
-                </div>
+                    <br><input type="submit" name="temoigne" value="Partager mon avis" class="btn btn-outline-primary">
+                </form>
+
             </div>
         </div>
     </main>
