@@ -1,5 +1,11 @@
 <?php
     session_start();
+    $hote = "localhost";
+    $login = "root";
+    $nameDB = "Couture";
+    
+    $connexion = new PDO("mysql:host=$hote;dbname=$nameDB" , $login);
+    $connexion -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -106,22 +112,33 @@
         <?php        
         if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true){
             $cours = [
-            "cours_debutants",
-            "cours_patron",
-            "cours_avancees"
+            "cours_debutants"=>"cours de débutants",
+            "cours_patron"=> "cours avec patrons",
+            "cours_avancees"=>"cours avancés"
             ];
 
-            foreach ($cours as $cour) {
-                $boutons_cours = '<input type="submit" value="S\'inscrire à ce cours" class="btn btn-outline-primary form-control">';
+            foreach ($cours as $cour => $nom_cours) {
+                $boutons_cours = '<form action="confirmation_cours.php" method="POST"><input type="submit" name="'.$cour.'" value="S\'inscrire à '.$nom_cours.'" class="btn btn-outline-primary form-control"></form>';
                 echo '<script>';
                 echo 'document.querySelector(".'.$cour.' p").insertAdjacentHTML("afterend", "' . addslashes($boutons_cours) . '");';
                 echo '</script>';
+            }
+            foreach($cours as $cour){
+                if (isset($_POST[$cour])){
+                    $email = $_SESSION['email'];
+                    $cours_inscription = $cour;
+
+                    $sql_update_cours = "UPDATE Utilisateurs SET Cours = '$cours_inscription' WHERE Email = '$email'";
+                    $connexion->exec($sql_update_cours);
+                    
+                }
             }
         }
         else{
             $bouton_login = '<button class="btn btn-outline-primary" onclick="window.location.href=\'page_de_login.php\'">Me connecter pour accéder aux inscriptions</button>';
             echo $bouton_login;
         }
+        
         
         ?>
 

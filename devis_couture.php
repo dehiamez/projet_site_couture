@@ -84,7 +84,6 @@
 <?php include("footer_couture.php")?>
 <?php include("envoyer_mail.php")?>
 
-<!-- chat gpt à modifier !!! -->
 <!-- <?php
 
 if (isset($_POST["devis"])) {

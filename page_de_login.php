@@ -116,7 +116,8 @@
     Prenom VARCHAR(50),
     Date_N DATE,
     Email VARCHAR(70),
-    Mdp VARCHAR(100)
+    Mdp VARCHAR(100),
+    Cours VARCHAR(50)
     )";
     $connexion->exec($sql_code);
     }
@@ -127,7 +128,8 @@
     $email = $_POST["email"];
     $date_n = $_POST["birthdate"];
     $mdp = password_hash($_POST["psswrd"],PASSWORD_DEFAULT);
-
+    $cours = "Aucun cours";
+    
     $sql_check_email = $connexion->query("SELECT * FROM Utilisateurs WHERE Email = '$email'");
 
     //ajout d'un utilisateur si son adresse mail ne figure dans la base de données
@@ -136,12 +138,17 @@
         adresse e-mail.</p>";
     }
     else{
-    $sql_insert_data = "INSERT INTO Utilisateurs (Nom,Prenom, Date_N, Email, Mdp) VALUES
-    ('$nom','$prenom','$date_n','$email','$mdp')";
+    $sql_insert_data = "INSERT INTO Utilisateurs (Nom,Prenom, Date_N, Email, Mdp,Cours) VALUES
+    ('$nom','$prenom','$date_n','$email','$mdp','$cours')";
     $connexion->exec($sql_insert_data);
 
     $_SESSION['loggedin'] = true;
+
     $_SESSION['email'] = $email;
+    $_SESSION['nom'] = $nom;
+    $_SESSION['prenom'] = $prenom;
+    $_SESSION['cours'] = $cours;
+    
     header("Location: COUTUREFORYOU.php");
     exit;
     }
@@ -172,7 +179,13 @@
 
     if (password_verify($mdp,$hash)){
     $_SESSION['loggedin'] = true;
+    
     $_SESSION['email'] = $email;
+    $_SESSION['nom'] = $connexion->query("SELECT nom FROM Utilisateurs WHERE Email = '$email'")->fetchColumn();    
+    $_SESSION['prenom'] = $connexion->query("SELECT prenom FROM Utilisateurs WHERE Email = '$email'")->fetchColumn();
+    $_SESSION['cours'] = $connexion->query("SELECT cours FROM Utilisateurs WHERE Email = '$email'")->fetchColumn();
+
+
     header("Location: COUTUREFORYOU.php");
     exit;
     }

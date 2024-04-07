@@ -33,6 +33,7 @@
             $message .= "Services : $service<br>";
             echo $message;}
     ?>
+    <!-- ajouter bouton pour retourner à l'accueil -->
 </body>
 
 </html>
