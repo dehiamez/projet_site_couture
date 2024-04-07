@@ -90,3 +90,11 @@ form {
 	height:500px;
 }
 
+/* mise en page des coordonnées de l'entreprise */
+
+.contact{
+	margin-top: 20px;
+}
+.contact p{
+	font-size:small;
+}
