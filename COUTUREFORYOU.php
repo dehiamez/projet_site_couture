@@ -57,10 +57,10 @@
                         mariage.
                     </p>
                 </div>
-
-                <?php include("temoignages.php")?>
-
-                <form action="" method="POST" class="#" id=avis>
+                <div id="temoignages">
+                    <?php require("temoignages.php")?>
+                </div>
+                <form action="" method="POST" id=avis>
                     <h5>Les témoignages de clients</h5>
                     <label for=" commentaire">Ajoutez votre avis : </label><br />
                     <textarea name="commentaire" id="commentaire" class="form-control"></textarea>

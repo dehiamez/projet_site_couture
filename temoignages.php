@@ -1,8 +1,46 @@
 <?php
-session_start();
+    session_start();
+    $hote = "localhost";
+    $login = "root";
+    $nameDB = "Couture";
 
-if(isset($_POST['temoigne']) && isset($_SESSION['loggedin']) && $_SESSION['loggedin']===true){
-    $ajout_temoignage = "<div id='temoignages'> <cite id='temoin'> \"".$_POST['commentaire']."\"</cite> </div>" ;
-    echo $ajout_temoignage;
-};
+    //code php pour l'inscription
+    $connexion = new PDO("mysql:host=$hote;dbname=$nameDB" , $login);
+
+    if ( isset($_POST["temoigne"]) && isset($_SESSION['loggedin']) && $_SESSION['loggedin']===true){
+
+        $connexion -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    
+        //verification que la table n'existe pas déjà
+        $check_table_query = $connexion->query("SHOW TABLES LIKE 'Avis'");
+
+        //créée la table si elle n'existe pas
+        if($check_table_query->rowCount()==0){
+
+        $sql_code = "CREATE TABLE Avis(
+            Email VARCHAR(50),
+            Comm VARCHAR(50)
+        )";
+        $connexion->exec($sql_code);
+        }
+        $comm = $_POST['commentaire'];
+        $email = $_SESSION['email'];
+        
+        // ajout d'un commentaire dans la table
+        $sql_insert_data = "INSERT INTO Avis (Email, Comm) VALUES
+        ('$email','$comm')";
+        $connexion->exec($sql_insert_data);
+        
+    }
+    
+    $rqt = $connexion->query("SELECT * FROM Avis");
+    $commentaires = $rqt->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach($commentaires as $commentaire){
+        echo "<cite id='temoin'> - \"".$commentaire['Comm']."\"</cite><br>";   
+    }
+
+    $connexion = null;
+
 ?>
