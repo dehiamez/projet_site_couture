@@ -111,15 +111,15 @@
     //créée la table si elle n'existe pas
     if($check_table_query->rowCount()==0){
 
-    $sql_code = "CREATE TABLE Utilisateurs(
-    Nom VARCHAR(50),
-    Prenom VARCHAR(50),
-    Date_N DATE,
-    Email VARCHAR(70),
-    Mdp VARCHAR(100),
-    Cours VARCHAR(50)
-    )";
-    $connexion->exec($sql_code);
+        $sql_code = "CREATE TABLE Utilisateurs(
+        Nom VARCHAR(50),
+        Prenom VARCHAR(50),
+        Date_N DATE,
+        Email VARCHAR(70),
+        Mdp VARCHAR(100),
+        Cours VARCHAR(50)
+        )";
+        $connexion->exec($sql_code);
     }
 
     //récupère les coordonnées de l'utilisateur

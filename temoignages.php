@@ -8,21 +8,18 @@
     $connexion = new PDO("mysql:host=$hote;dbname=$nameDB" , $login);
 
     if ( isset($_POST["temoigne"]) && isset($_SESSION['loggedin']) && $_SESSION['loggedin']===true){
-
         $connexion -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    
         //verification que la table n'existe pas déjà
         $check_table_query = $connexion->query("SHOW TABLES LIKE 'Avis'");
 
-        //créée la table si elle n'existe pas
+        //créée la table si elle n'existe pas (cette partie bug, on ne sait pas pq)
         if($check_table_query->rowCount()==0){
-
-        $sql_code = "CREATE TABLE Avis(
+            $sql_code = "CREATE TABLE Avis(
             Email VARCHAR(50),
-            Comm VARCHAR(50)
-        )";
-        $connexion->exec($sql_code);
+            Comm VARCHAR(500)
+            )";
+            $connexion->exec($sql_code);
         }
         $comm = $_POST['commentaire'];
         $email = $_SESSION['email'];

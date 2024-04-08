@@ -59,7 +59,7 @@
                 </div>
                 <!-- Partie avis provenant de la table Avis de la base de données-->
                 <div id="temoignages">
-                    <?php include("temoignages.php")?>
+                    <?php if(isset($_SESSION['loggedin'])){include("temoignages.php");}?>
                 </div>
 
                 <form action="" method="POST" id=avis>
